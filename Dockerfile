@@ -3,7 +3,8 @@ FROM ruby:2-alpine
 # Setup
 RUN set -x && apk update && apk upgrade && apk add --no-cache \
   gnupg gcc g++ make unzip curl openssh-client git bash imagemagick
-RUN gem install bundler
+# 最新版ではなくRuby 2に対応したBundler 2.4.22をインストール
+RUN gem install bundler -v 2.4.22
 
 WORKDIR /usr/src/
 
